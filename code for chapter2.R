@@ -75,7 +75,7 @@ library(vioplot)
 vioplot(age,horizontal=TRUE, col="gray" )
 
 stem(age,scale=2)
-qt(1-0.05/2,df=legth(age)-1)
+qt(1-0.05/2,df=length(age)-1)
 ?t.test
 t.summary<-t.test(age,mu=50)
 t.summary
