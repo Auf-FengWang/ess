@@ -21,17 +21,17 @@ demo.clt.exp <- function(N, n) {
   sam.mean <- colMeans(sam)
   sam.se <- sd(sam.mean)
   true.se <- sqrt(1/n)
-  hist(sam.mean,freq = FALSE,breaks = 25, main = paste( "True SEM =", round(true.se,4),"£¬Est SEM = ", round( sam.s,4)), xlab = paste( "n =", n))
-  points(density(sam.mean), type = "1")
-  x<- seq(o,1,length = 1000)
-  points(x,dnorm(x,mean = 0.5,sd = true.se),type = "l", lwd = 2,col = "red")
+  hist(sam.mean,freq = FALSE,breaks = 25, main = paste( "True SEM =", round(true.se,4),"，Est SEM = ", round( sam.se,4)), xlab = paste( "n =", n))
+  points(density(sam.mean), type = "l")
+  x<- seq(0,5,length = 1000)
+  points(x,dnorm(x,mean = 1,sd = true.se),type = "l", lwd = 2,col = "red")
   rug(sam.mean)
 }
 par(mfrow=c(2,2));
-demo.clt.unif(10000, 1);
-demo.clt.unif(10000, 6);
-demo.clt.unif(10000, 30);
-demo.clt.unif(10000, 100);
+demo.clt.exp(10000, 1);
+demo.clt.exp(10000, 6);
+demo.clt.exp(10000, 30);
+demo.clt.exp(10000, 100);
 
 
 x<- seq(-8,8, length = 1000)
